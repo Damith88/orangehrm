@@ -12,5 +12,11 @@
  */
 abstract class PluginKpi extends BaseKpi
 {
-
+    public function getPrepared(array $array = array()) {
+        $a = parent::getPrepared($array);
+        if ($a) {
+            $a['default_kpi'] = $this->_data['default_kpi'];
+        }
+        return $a;
+    }
 }
