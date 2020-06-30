@@ -140,10 +140,12 @@ use_javascript(plugin_web_path('orangehrmMarketPlacePlugin', 'js/ohrmAddonSucces
                                        id="<?php echo 'buyBtn' . $addon['id']; ?>"
                                        value="<?php if (in_array($addon['id'], $buyNowPendingAddon)) {
                                            echo __('Requested');
+                                       } elseif (in_array($addon['id'], $renewPendingAddons)) {
+                                           echo __('Renew Requested');
                                        } else {
                                            echo __('Request');
                                        } ?>"
-                                       <?php if (in_array($addon['id'], $buyNowPendingAddon)) {
+                                       <?php if (in_array($addon['id'], $buyNowPendingAddon) || in_array($addon['id'], $renewPendingAddons)) {
                                            echo 'disabled';
                                        } ?>
                                        addid=<?php echo $addon['id'] ?>
